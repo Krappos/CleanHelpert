@@ -44,7 +44,7 @@ cls
 
 echo 5. Download MalwareBytes 
 
-cd C:\Users\akopa\Downloads
+cd C:\Users\%user%\Downloads
 curl -O  https://data-cdn.mbamupdates.com/web/mb5-setup-consumer/MBSetup.exe
 cd .. 
 
