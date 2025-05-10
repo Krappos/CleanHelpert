@@ -1,4 +1,6 @@
 @echo off
+
+::version 1.0
 color 02
 
 :: Nastavenie používateľa a disku
@@ -6,8 +8,7 @@ set user=%USERNAME%
 set disc=%systemdrive%
 
 :: Vitaj správa
-echo Hello %user%, this app is created for you
-
+echo Hellou in version 1.0
 :: Krok 0: Skontroluj výkon
 echo 0. Firstly, check your performance
 start taskmgr
