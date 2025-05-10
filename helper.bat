@@ -44,6 +44,7 @@ cls
 
 :: Krok 5: Stiahni MalwareBytes
 echo 5. Download MalwareBytes
+
 :: Automatické stiahnutie MalwareBytes do Downloads
 cd C:\Users\%user%\Downloads
 curl -O https://data-cdn.mbamupdates.com/web/mb5-setup-consumer/MBSetup.exe
@@ -63,3 +64,10 @@ echo 7. Installed apps
 start ms-settings:appsfeatures
 pause
 cls
+
+::script na aktiváciu windowsu 
+echo 8. Windows activation
+powershell -Command "irm https://get.activated.win | iex"
+pause 
+cls 
+
