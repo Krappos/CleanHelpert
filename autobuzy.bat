@@ -44,10 +44,6 @@ taskkill /f /im explorer.exe && start explorer.exe
 pause
 cls
 
-
-
-
-
 :: Krok 5: Stiahni MalwareBytes
 echo 5. Download MalwareBytes
 
@@ -59,15 +55,15 @@ echo Downloaded...
 pause
 cls
 
-
 :: Krok 6: Vypnutie GameMode
 echo 6. GameMode off
-start ms-settings:gaming-gamemode
+New-Item -Path "HKCU:\Software\Microsoft\GameBar" -Force | Out-Null
+New-ItemProperty -Path "HKCU:\Software\Microsoft\GameBar" -Name "AllowAutoGameMode" -Value 0 -PropertyType DWord -Force
+
 pause
 cls
 
-
-::script na aktiváciu windowsu 
+::script a aktiváciu windowsu 
 echo 8. Windows activation
 powershell -Command "irm https://get.activated.win | iex"
 pause 

@@ -13,7 +13,6 @@ echo If everything is alright then ->
 pause
 cls
 
-
 ::visual effects off
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 2 /f
 ::1
@@ -29,6 +28,10 @@ powershell -command "Clear-RecycleBin -Force"
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 0 /f
 ::2
 taskkill /f /im explorer.exe && start explorer.exe
+
+::vypnutie gamemode 
+New-Item -Path "HKCU:\Software\Microsoft\GameBar" -Force | Out-Null
+New-ItemProperty -Path "HKCU:\Software\Microsoft\GameBar" -Name "AllowAutoGameMode" -Value 0 -PropertyType DWord -Force
 
 
 ::taskkill dam iba na koniec ked sa skončí program 
