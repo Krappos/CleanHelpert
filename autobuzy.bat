@@ -19,7 +19,6 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" 
 taskkill /f /im explorer.exe && start explorer.exe
 
 echo changes saved 
-::mozno pause uvidíme 
 pause
 cls
 
