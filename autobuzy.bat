@@ -24,9 +24,55 @@ pause
 cls
 
 echo 2. Opening disc optimizer
+
 defrag %disc% /O /U /V
 pause
 cls
+
+echo 3. Trash remover
+:: koš prázdny 
+powershell -command "Clear-RecycleBin"
+pause
+cls
+
+:: Krok 4: Vypni režim transparentnosti
+echo 4. Transparency mode off
+:: Otvorenie okna pre vypnutie transparentnosti
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 0 /f
+taskkill /f /im explorer.exe && start explorer.exe
+
+pause
+cls
+
+
+
+
+
+:: Krok 5: Stiahni MalwareBytes
+echo 5. Download MalwareBytes
+
+:: Automatické stiahnutie MalwareBytes do Downloads
+cd C:\Users\%user%\Downloads
+curl -O https://data-cdn.mbamupdates.com/web/mb5-setup-consumer/MBSetup.exe
+cd ..
+echo Downloaded...
+pause
+cls
+
+
+:: Krok 6: Vypnutie GameMode
+echo 6. GameMode off
+start ms-settings:gaming-gamemode
+pause
+cls
+
+
+::script na aktiváciu windowsu 
+echo 8. Windows activation
+powershell -Command "irm https://get.activated.win | iex"
+pause 
+cls 
+
 
 
 

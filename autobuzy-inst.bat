@@ -13,10 +13,23 @@ echo If everything is alright then ->
 pause
 cls
 
-echo 1. Turn off visual effects
 
+::visual effects off
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 2 /f
+::1
 taskkill /f /im explorer.exe && start explorer.exe
 
+::defragmentacia dusku
 defrag %disc% /O
 
+::vymazanie koša insta
+powershell -command "Clear-RecycleBin -Force"
+
+::vypnutie transparent modu
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 0 /f
+::2
+taskkill /f /im explorer.exe && start explorer.exe
+
+
+::taskkill dam iba na koniec ked sa skončí program 
+taskkill /f /im explorer.exe && start explorer.exe
